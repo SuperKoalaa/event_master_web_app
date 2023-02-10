@@ -11,6 +11,13 @@
   --gray-color: #808080;
   --brown-color: #a52a2a;
   --white-color: #ffffff;
+
+  --bg-nav-menu: linear-gradient(to bottom, #87cefa, #ffffff);
+  --bg-section-home: linear-gradient(to top, #add8e6, #ffffff);
+  --bg-section-about: linear-gradient(to bottom, #87ceeb, #ffffff);
+  --bg-section-contact: linear-gradient(to bottom, #87cefa, #ffffff);
+  --bg-section-footer: linear-gradient(to bottom, #a9a9a9, #d3d3d3);
+  --bg-section-get-started: linear-gradient(to bottom, #1e90ff, #ffffff);
 }
 
 * {

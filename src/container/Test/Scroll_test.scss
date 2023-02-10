@@ -1,0 +1,57 @@
+.app__test-container {
+  align-items: center;
+}
+.app__test-icon-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app__test {
+  display: flex;
+  background-color: rgb(237, 235, 235);
+  justify-content: space-evenly;
+  padding: 1rem 1rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.app__test-icons {
+  color: dodgerblue;
+}
+
+.app__test-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p {
+    color: var(--gray-color);
+    text-align: center;
+    font-weight: 500;
+  }
+  @media screen and(max-width:2000px) {
+    padding-bottom: 0rem;
+  }
+  @media screen and(max-width:1200px) {
+    padding-bottom: 1rem;
+  }
+  @media screen and(max-width:450px) {
+    padding-bottom: 2rem;
+  }
+}

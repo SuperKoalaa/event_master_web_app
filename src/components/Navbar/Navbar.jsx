@@ -26,8 +26,10 @@ function Navbar() {
         <CgMenuOreos onClick={() => setToggle(true)} />
         {toggle === true && (
           <motion.div
-            whileInViwe={{ x: [300, 0] }}
-            transition={{ duration: 0.85, ease: "easeOut" }}
+            // whileInViwe={{ x: [300, 0] }}
+            initial={{ x: 300 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
           >
             <CgCloseO onClick={() => setToggle(false)} />
             <ul>

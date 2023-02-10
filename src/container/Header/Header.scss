@@ -1,0 +1,61 @@
+// define "id = home"
+#home {
+  position: relative;
+  //   background: var(--bg-section-home);
+  background-color: var(--white-color);
+}
+
+.app__header {
+  //   flex: 1;
+  //   width: 100%;
+  //   height: 100%;
+  //   flex-direction: row;
+  padding: 6rem 2rem 0;
+
+  p {
+    text-align: center;
+    padding-bottom: 10px;
+    color: var(--gray-color);
+    font-weight: 500;
+  }
+
+  @media screen and (min-width: 2000px) {
+    padding-top: 8rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    p {
+      padding-bottom: 20px;
+      color: var(--gray-color);
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    padding: 6rem 1rem 2rem;
+    p {
+      padding-bottom: 30px;
+      color: var(--gray-color);
+    }
+  }
+}
+
+.app__header-info {
+  flex: 0.65;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+  @media screen and(max-width: 2000px) {
+    width: 100%;
+    margin-right: 0rem;
+  }
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+  }
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+  }
+}
