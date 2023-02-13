@@ -27,11 +27,12 @@ function App() {
       <Navbar />
 
       <Header />
-      <Test />
-      {/* <Features /> */}
-      {/* <Resources />
+      {/* <Test /> */}
       <About />
-      <Contact /> */}
+      <Features />
+      <Resources />
+
+      <Contact />
       {/* <Footer /> */}
     </div>
   );

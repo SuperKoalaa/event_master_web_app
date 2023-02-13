@@ -10,6 +10,7 @@ function Header() {
       <motion.div
         initial={{ y: 200 }}
         animate={{ y: 0 }}
+        whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 1 }}
         className="app__header-info"
       >
