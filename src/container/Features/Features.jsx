@@ -41,7 +41,7 @@ const features = [
 function Features() {
   return (
     <>
-      <div className="app__features">
+      <div name="features" className="app__features">
         {features.slice(0, 6).map((feature, index) => (
           <motion.div
             className="app__features-card app_flex"

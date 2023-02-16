@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { CgMenuOreos, CgCloseO } from "react-icons/cg";
 import { motion } from "framer-motion";
 import { images } from "../../constants";
+import { Link, animateScroll as scroll } from "react-scroll";
 import "./Navbar.scss";
 
-var items = ["home", "about", "contact"];
+var items = ["home", "about", "features", "resources", "contact"];
 function Navbar() {
   const [toggle, setToggle] = useState(false);
   return (
@@ -12,12 +13,15 @@ function Navbar() {
       <div className="app__navbar-logo">
         <img src={images.logo} alt="logo" />
       </div>
+
       {/* Laptop Screen  */}
       <ul className="app__navbar-links">
         {items.map((item) => (
           <li className="app__flex p-text" key={`link-${item}`}>
             <div />
-            <a href={`#$(item)`}>{item}</a>
+            <Link to={item} mooth={true} offset={-50} duration={500}>
+              {item}
+            </Link>
           </li>
         ))}
       </ul>
@@ -35,9 +39,15 @@ function Navbar() {
             <ul>
               {items.map((item) => (
                 <li key={{ item }}>
-                  <a href={`#$(item)`} onClick={() => setToggle(false)}>
+                  <Link
+                    to={item}
+                    mooth={true}
+                    offset={-50}
+                    duration={500}
+                    onClick={() => setToggle(false)}
+                  >
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -51,7 +51,7 @@ const resources = [
 function Resources() {
   return (
     <>
-      <div className="app__resources-container">
+      <div name="resources" className="app__resources-container">
         {resources.map((resource, index) => (
           <>
             <motion.div className="app__resources-list">

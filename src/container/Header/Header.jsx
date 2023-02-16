@@ -6,7 +6,7 @@ import "./Header.scss";
 
 function Header() {
   return (
-    <div id="home" className="app__header app__flex">
+    <div name="home" className="app__header app__flex">
       <motion.div
         initial={{ y: 200 }}
         animate={{ y: 0 }}

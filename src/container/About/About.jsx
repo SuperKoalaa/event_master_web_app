@@ -26,7 +26,7 @@ var abouts = [
 function About() {
   return (
     <>
-      <div className="app__abouts">
+      <div name="about" className="app__abouts">
         {abouts.map((about, index) => {
           return (
             <motion.div

@@ -1,17 +1,6 @@
-// define "id = home"
-#home {
-  position: relative;
-  //   background: var(--bg-section-home);
-  background-color: #caf0f8;
-}
-
 .app__header {
-  //   flex: 1;
-  //   width: 100%;
-  //   height: 100%;
-  //   flex-direction: row;
   padding: 6rem 2rem 0;
-
+  background-color: #caf0f8;
   p {
     text-align: center;
     padding-bottom: 10px;

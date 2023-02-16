@@ -8,9 +8,8 @@ import { TbBrandLinkedin } from "react-icons/tb";
 function Contact() {
   return (
     <>
-      <div className="app__contact-container">
+      <div name="contact" className="app__contact-container">
         <h2 className="head-text">Feel free to chat with me</h2>
-
         <div className="app__footer-cards">
           <a href="mailto:kenzhipan@gmail.com">
             <div className="app__footer-card ">

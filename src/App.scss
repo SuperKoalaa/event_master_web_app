@@ -195,12 +195,12 @@
   }
 }
 
-// .app__progress-bar {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   height: 10px;
-//   background: rgb(0, 181, 204);
-//   transform-origin: 0%;
-// }
+.app__progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: #00b4d8;
+  transform-origin: 0%;
+}
