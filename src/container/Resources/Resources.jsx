@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
 import React from "react";
+import { useState } from "react";
+import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import "./Resources.scss";
 import { images } from "../../constants";
 
@@ -49,28 +50,65 @@ const resources = [
 ];
 
 function Resources() {
+  const [openIndex, setOpenIndex] = useState(-1);
+  const handleItemOpen = (index) => {
+    setOpenIndex(index === openIndex ? -1 : index);
+  };
   return (
-    <>
-      <div name="resources" className="app__resources-container">
-        {resources.map((resource, index) => (
-          <>
-            <motion.div className="app__resources-list">
-              <motion.div
-                whileInView={{ opacity: [0, 1] }}
-                transition={{ duration: 0.5 }}
-                className="app__resources-item app__flex"
-              >
-                <div className="app__flex" style={{ backgroundColor: "white" }}>
-                  <img src={resource.icon} />
-                </div>
-                <p className="p-text">{resource.name}</p>
-              </motion.div>
-              <p>{resource.description}</p>
-            </motion.div>
-          </>
-        ))}
-      </div>
-    </>
+    <AnimateSharedLayout>
+      <motion.ul layout initial={{ borderRadius: 25 }}>
+        <div
+          name="resources"
+          className="app__resources-container app__motion-list"
+        >
+          {resources.map((resource, index) => (
+            <Item
+              key_index={index}
+              resource={resource}
+              isOpen={index === openIndex}
+              onOpen={handleItemOpen}
+            />
+          ))}
+        </div>
+      </motion.ul>
+    </AnimateSharedLayout>
+  );
+}
+
+function Item(props) {
+  const toggleOpen = () => props.onOpen(props.key_index);
+  return (
+    <motion.li layout onClick={toggleOpen} initial={{ borderRadius: 10 }}>
+      <motion.div
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.5 }}
+        className="app__resources-item app__flex"
+      >
+        <div className="app__flex" style={{ backgroundColor: "white" }}>
+          <img src={props.resource.icon} />
+        </div>
+        <p className="p-text">{props.resource.name}</p>
+      </motion.div>
+      <AnimatePresence>
+        {props.isOpen && (
+          <Content key={props.key_index} resource={props.resource} />
+        )}
+      </AnimatePresence>
+    </motion.li>
+  );
+}
+
+function Content(props) {
+  //   const { description } = props.resource.description;
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <p>{props.resource.description}</p>
+    </motion.div>
   );
 }
 

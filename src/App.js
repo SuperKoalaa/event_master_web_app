@@ -27,13 +27,14 @@ function App() {
       <Navbar />
 
       <Header />
-      {/* <Test /> */}
+
       <About />
       <Features />
       <Resources />
 
       <Contact />
       <Footer />
+      {/* <Test /> */}
     </div>
   );
 }
