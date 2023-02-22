@@ -19,7 +19,7 @@ function Navbar() {
         {items.map((item) => (
           <li className="app__flex p-text" key={`link-${item}`}>
             <div />
-            <Link to={item} mooth={true} offset={-50} duration={500}>
+            <Link to={item} smooth={true} offset={-50} duration={500}>
               {item}
             </Link>
           </li>

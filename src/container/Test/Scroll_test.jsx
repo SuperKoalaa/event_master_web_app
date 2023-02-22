@@ -1,115 +1,98 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
-import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { GiCosmicEgg } from "react-icons/gi";
+import { SlGhost } from "react-icons/sl";
+import { MdOutlineAppRegistration } from "react-icons/md";
+
 import "./Scroll_test.scss";
-import { images } from "../../constants";
 
-const resources = [
+var abouts = [
   {
-    name: "Chat GPT",
-    bgColor: "white",
-    icon: images.chat_gpt_logo,
+    icon: <GiCosmicEgg className="icons" />,
     description:
-      "Using it to create user stories, which outline the different tasks and activities that your users will perform on the website. ",
+      "Event Master was created by a passionate event planning enthusiast who wanted to bring their own experience and expertise to the event planning industry. With the aim of simplifying the event planning process and making it more accessible, Event Master was born.",
   },
   {
-    name: "Firebase",
-    bgColor: "white",
-    icon: images.firebase_logo,
+    icon: <SlGhost className="icons" />,
     description:
-      "Using it to host the website, with automatic scaling and seamless integration with other Firebase services like authentication, real-time database, and storage",
+      "Whether you're a seasoned event planner or a first-time host, Event Master has everything you need to plan your event with confidence. Our comprehensive features, including event creation and management, guest management, task management, budget tracking, vendor management, and communication tools, ensure that you have all the information and resources you need to make your event a success.",
   },
   {
-    name: "Github",
-    bgColor: "white",
-    icon: images.github_logo,
+    icon: <MdOutlineAppRegistration className="icons" />,
     description:
-      "Using it to set up automated tests and deployments, ensuring that the code is always up to date and the website is always live and available to users",
-  },
-  {
-    name: "SASS",
-    bgColor: "white",
-    icon: images.sass_logo,
-    description: "Using it to makes the stylesheets more dynamic and flexible",
-  },
-
-  {
-    name: "BEM Method",
-    bgColor: "white",
-    icon: images.bem_logo,
-    description:
-      "Using it to create modular components that can be easily reused across the website, reducing the time and effort that need to spend on styling.",
-  },
-  {
-    name: "Framer Motion",
-    bgColor: "white",
-    icon: images.framer_motion_logo,
-    description:
-      "Using it to add animations to the website, creating a more immersive and interactive user experience.",
+      "At Event Master, we're dedicated to helping you make the most of your events, no matter how big or small. Whether you're planning a wedding, a corporate event, or a personal celebration, our app provides you with the tools and resources you need to execute your event flawlessly. So why wait? Sign up for Event Master today and take the first step towards creating an event that's unforgettable.",
   },
 ];
-function Scroll_test() {
-  const [openIndex, setOpenIndex] = useState(-1);
-  const handleItemOpen = (index) => {
-    setOpenIndex(index === openIndex ? -1 : index);
-  };
+
+const variants = {
+  initial: (direction) => {
+    return { x: direction > 0 ? 200 : -200, opacity: 0 };
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    // transition: "ease-in",
+    transition: {
+      x: { type: "spring", stiffness: 300, damping: 30 },
+      opacity: { duration: 0.2 },
+    },
+  },
+  exit: (direction) => {
+    return {
+      x: direction > 0 ? -200 : 200,
+      opacity: 0,
+      transition: "ease-in",
+    };
+  },
+};
+
+const Scroll_test = () => {
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  function nextStep() {
+    setIndex((index + 1) % abouts.length);
+    // If click the next button direction will be set to 1
+    setDirection(1);
+  }
+  function prevStep() {
+    setIndex((index - 1 + abouts.length) % abouts.length);
+    // If click the next button direction will be set to -1
+    setDirection(-1);
+  }
   return (
-    <AnimateSharedLayout>
-      <motion.ul layout initial={{ borderRadius: 25 }}>
-        <div name="resources" className="app__resources-container app__test">
-          {resources.map((resource, index) => (
-            <Item
-              key_index={index}
-              resource={resource}
-              isOpen={index === openIndex}
-              onOpen={handleItemOpen}
-            />
-          ))}
+    <>
+      <div className="app__test-container">
+        <div className="slideshow">
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.div
+              variants={variants}
+              animate="animate"
+              initial="initial"
+              exit="exit"
+              alt="sliders"
+              className="test-slider"
+              // Pass the variable direction by using custom
+              key={index}
+              custom={direction}
+            >
+              {abouts[index].icon}
+              <p className="p-text" style={{ marginTop: 10 }} key={index}>
+                {abouts[index].description}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+          <button className="prevButton button" onClick={prevStep}>
+            ◀
+          </button>
+          <button className="nextButton button" onClick={nextStep}>
+            ▶
+          </button>
         </div>
-      </motion.ul>
-    </AnimateSharedLayout>
+      </div>
+    </>
   );
-}
+};
 
-function Item(props) {
-  const toggleOpen = () => props.onOpen(props.key_index);
-  return (
-    <motion.li layout onClick={toggleOpen} initial={{ borderRadius: 10 }}>
-      <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.5 }}
-        className="app__resources-item app__flex"
-      >
-        <div className="app__flex" style={{ backgroundColor: "white" }}>
-          <img src={props.resource.icon} />
-        </div>
-        <p className="p-text">{props.resource.name}</p>
-      </motion.div>
-      <AnimatePresence>
-        {props.isOpen && (
-          <Content key={props.key_index} resource={props.resource} />
-        )}
-      </AnimatePresence>
-    </motion.li>
-  );
-}
-
-function Content(props) {
-  const { name, description } = props.resource;
-  return (
-    <motion.div
-      layout
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      {/* <div className="row">aaaaaa</div>
-
-      <div className="row" />
-      <div className="row" /> */}
-      <p>{props.resource.description}</p>
-    </motion.div>
-  );
-}
-// const items = [0, 1, 2];
 export default Scroll_test;

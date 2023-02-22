@@ -67,6 +67,7 @@ function Resources() {
               resource={resource}
               isOpen={index === openIndex}
               onOpen={handleItemOpen}
+              key={index}
             />
           ))}
         </div>
@@ -99,7 +100,6 @@ function Item(props) {
 }
 
 function Content(props) {
-  //   const { description } = props.resource.description;
   return (
     <motion.div
       layout

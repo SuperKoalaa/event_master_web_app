@@ -49,6 +49,7 @@ function Features() {
             initial={{ x: -100 }}
             animate={{ x: 0 }}
             transition={{ duration: 1 }}
+            key={index}
           >
             <motion.div
               className="app__features-icon-circle"

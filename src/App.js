@@ -20,9 +20,6 @@ function App() {
         className="app__progress-bar"
         style={{ scaleX: scrollYProgress, zIndex: 100 }}
       />
-      {/* <motion.div className="text-container" ref={textRef}>
-        <p>Event Master</p>
-      </motion.div> */}
 
       <Navbar />
 
