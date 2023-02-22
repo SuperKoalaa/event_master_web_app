@@ -61,27 +61,7 @@ function About() {
   }
   return (
     <>
-      {/* <div name="about" className="app__abouts">
-        {abouts.map((about, index) => {
-          return (
-            <motion.div
-              whileInView={{ opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.5, type: "tween" }}
-              className="app__abouts-item"
-              key={index}
-            >
-              <about.icon className="icons" style={{}} />
-              <p className="p-text" style={{ marginTop: 10 }}>
-                {about.description}
-              </p>
-            </motion.div>
-          );
-        })}
-      </div> */}
-
-      {/* Test */}
-      <div className="app__abouts-container">
+      <div id="about" className="app__abouts-container">
         <div className="app__abouts-slideshow">
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
@@ -100,17 +80,12 @@ function About() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.5, type: "tween" }}
                 className="app__abouts-item"
-                // key={index}
               >
                 {abouts[index].icon}
                 <p className="p-text" style={{ marginTop: 10 }} key={index}>
                   {abouts[index].description}
                 </p>
               </motion.div>
-              {/* {abouts[index].icon}
-              <p className="p-text" style={{ marginTop: 10 }} key={index}>
-                {abouts[index].description}
-              </p> */}
             </motion.div>
           </AnimatePresence>
           <button className="app__abouts-prevButton button" onClick={prevStep}>
