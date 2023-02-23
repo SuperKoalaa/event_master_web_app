@@ -1,158 +1,126 @@
-.app__test-container {
-  // display: flex;
+/*Testing*/
 
-  // display: flex;
-  // position: relative;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  height: auto;
-  // height: 100vh;
-  // width: 50vw;
-  // justify-content: center;
-  // align-items: center;
-  // background-color: black;
-  @media screen and(max-width:1200px) {
-    // width: 500px;
-  }
-}
-
-.slideshow {
-  // display: flex;
+.app__features-slider {
+  height: 600px;
+  margin: auto;
   position: relative;
-  // margin: 100px;
+  width: 90%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+
+  background-color: #d7e3fc;
   padding-top: 5%;
   padding-bottom: 5%;
-  padding-left: 25%;
-  padding-right: 25%;
-  // padding: 100px;
-  // height: 100vh;
-  // margin: 100px;
-  // width: 60vw;
-  // padding: 100px;
-  // width: 100%;
-  // height: 100%;
-  // height: auto;
-  // margin: ;
-  // aspect-ratio: calc(16 / 9);
-  // position: relative;
-  // overflow-y: scroll;
-  overflow: hidden;
-  // border-radius: 16px;
-  // background-color: black;
-  @media screen and(max-width: 900px) {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
-.button {
-  position: absolute;
-  top: 50%;
-  bottom: 50%;
-  translate: translate(-50%);
-  // padding: 16px;
-  // margin-top: calc(2 / 1);
-  font-size: 16px;
-  width: 64px;
-  aspect-ratio: 1;
-  border-radius: 32px;
-  border: none;
-  cursor: pointer;
-  // text-align: center;
-  color: white;
-  background-color: #abc4ff;
-
+.app__features-slide-track {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  width: calc(450px * 12);
+  animation: scroll 10s linear infinite;
 
   &:hover {
-    // background-color: #d7e3fc;
-    box-shadow: 0 0 25px black;
+    animation-play-state: paused;
   }
-
-  @media screen and(max-width: 1200px) {
-    width: 42px;
-    // padding-top: 20%;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-450px * 6));
   }
 }
 
-.prevButton {
-  left: 20%;
-  translate: translate(-50%);
-  @media screen and(max-width: 1200px) {
-    left: 10%;
-  }
-  @media screen and(max-width: 800px) {
-    left: 16px;
-  }
-}
-.nextButton {
-  right: 20%;
-  translate: translate(-50%);
-  @media screen and(max-width: 1200px) {
-    right: 10%;
-  }
-  @media screen and(max-width: 800px) {
-    right: 16px;
-  }
-  // translate: translate(-50%);
-}
-
-// .sliders {
-//   // position: absolute;
-//   // top: 0;
-//   // left: 0;
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-//   object-position: center;
-// }
-
-.test-slider {
-  // position: absolute;
-  display: flex;
-  flex-direction: column;
-  // height: auto;
-  object-fit: cover;
-  object-position: center;
-  padding-left: 20%;
-  padding-right: 20%;
-
-  // top: 0;
-  // bottom: 0;
-  // left: 10%;
-  // right: 10%;
-  // bottom: 50%;
-  // transform: translate(-50%);
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
+.app__features-slide {
+  width: 450px;
+  display: relative;
   align-items: center;
-  text-align: center;
-  // color: black;
-  // font-size: 24px;
-  // background-color: white;
-  // margin: 2rem;
-  // object-fit: contain;
+  padding: 10px;
+  perspective: 100px;
+}
 
-  .icons {
-    font-size: 160px;
-    margin-bottom: 10px;
-    // width: 100%;
-    // height: 16px;
-    // border-radius: 50px;
-    // object-fit: cover;
-    color: dodgerblue;
-    background-color: white;
-    object-fit: contain;
+.app__features-slider::before,
+.app__features-slider::after {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 15%;
+  z-index: 2;
+}
+
+.app__features-slider::before {
+  left: 0;
+  top: 0;
+}
+.app__features-slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.app__features-icon-circle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background: rgb(255, 255, 255);
+  align-items: center;
+
+  @media screen and (max-width: 1200px) {
+    width: 75px;
+    height: 75px;
+  }
+  @media screen and (max-width: 450px) {
+    width: 85px;
+    height: 85px;
+  }
+}
+.app__features-icons {
+  color: dodgerblue;
+  width: 55%;
+  height: 55%;
+  object-fit: cover;
+}
+
+/* This img should be modify: for example change the name of img to motion.div*/
+
+.app__feature-card-hover-effect {
+  border-radius: 20px;
+  width: 250px;
+
+  transition: transform 1s;
+  &:hover {
+    transform: translateZ(20px);
+  }
+}
+
+.app__features-card {
+  h2 {
+    padding-top: 5rem;
+    text-align: center;
   }
   p {
+    color: var(--gray-color);
+    text-align: center;
     font-weight: 500;
-    // text-align: center;
-    text-align: justify;
-    color: grey;
-    object-fit: contain;
+    padding-top: 2rem;
+  }
+  @media screen and(max-width:2000px) {
+    padding-bottom: 0rem;
+  }
+  @media screen and(max-width:1200px) {
+    padding-bottom: 1rem;
+  }
+  @media screen and(max-width:450px) {
+    padding-bottom: 2rem;
   }
 }

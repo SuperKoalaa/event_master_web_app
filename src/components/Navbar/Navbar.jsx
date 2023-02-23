@@ -16,8 +16,8 @@ function Navbar() {
 
       {/* Laptop Screen  */}
       <ul className="app__navbar-links">
-        {items.map((item) => (
-          <li className="app__flex p-text" key={`link-${item}`}>
+        {items.map((item, index) => (
+          <li className="app__flex p-text" key={index}>
             <div />
             <Link to={item} smooth={true} offset={-50} duration={100}>
               {item}
@@ -37,13 +37,13 @@ function Navbar() {
           >
             <CgCloseO onClick={() => setToggle(false)} />
             <ul>
-              {items.map((item) => (
-                <li key={{ item }}>
+              {items.map((item, index) => (
+                <li key={index}>
                   <Link
                     to={item}
-                    mooth={true}
+                    smooth={true}
                     offset={-50}
-                    duration={500}
+                    duration={100}
                     onClick={() => setToggle(false)}
                   >
                     {item}

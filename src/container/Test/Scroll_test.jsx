@@ -1,98 +1,86 @@
-import React, { useRef } from "react";
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { GiCosmicEgg } from "react-icons/gi";
-import { SlGhost } from "react-icons/sl";
-import { MdOutlineAppRegistration } from "react-icons/md";
-
+import React from "react";
 import "./Scroll_test.scss";
+import { MdEventNote, MdStorefront } from "react-icons/md";
+import { FaTasks } from "react-icons/fa";
+import { BsChatText, BsPeople, BsCashCoin } from "react-icons/bs";
+import { motion } from "framer-motion";
 
-var abouts = [
+const features = [
   {
-    icon: <GiCosmicEgg className="icons" />,
-    description:
-      "Event Master was created by a passionate event planning enthusiast who wanted to bring their own experience and expertise to the event planning industry. With the aim of simplifying the event planning process and making it more accessible, Event Master was born.",
+    title: "Event Creation and Management",
+    feature_icon: <MdEventNote className="app__features-icons" />,
+    descripton:
+      "Create and manage your events with ease, from start to finish. Our intuitive interface makes it simple to add details, manage guest lists, and keep track of tasks and deadlines",
   },
   {
-    icon: <SlGhost className="icons" />,
-    description:
-      "Whether you're a seasoned event planner or a first-time host, Event Master has everything you need to plan your event with confidence. Our comprehensive features, including event creation and management, guest management, task management, budget tracking, vendor management, and communication tools, ensure that you have all the information and resources you need to make your event a success.",
+    title: "Task Management",
+    feature_icon: <FaTasks className="app__features-icons" />,
+    descripton:
+      "Keep track of tasks and deadlines with our powerful task management tools. Assign tasks to team members, set due dates, and track progress in real-time, all from one central location.",
   },
   {
-    icon: <MdOutlineAppRegistration className="icons" />,
-    description:
-      "At Event Master, we're dedicated to helping you make the most of your events, no matter how big or small. Whether you're planning a wedding, a corporate event, or a personal celebration, our app provides you with the tools and resources you need to execute your event flawlessly. So why wait? Sign up for Event Master today and take the first step towards creating an event that's unforgettable.",
+    title: "Communication Tools",
+    feature_icon: <BsChatText className="app__features-icons" />,
+    descripton:
+      " Keep your team and guests in the loop with our communication tools. Send updates, reminders, and messages,  all from within the app, to ensure that everyone is on the same page",
+  },
+  {
+    title: "Guest Management",
+    feature_icon: <BsPeople className="app__features-icons" />,
+    descripton:
+      "Manage your guests with ease, from sending invitations to tracking RSVPs and guest details. Our guest  management tools will ensure that you have all the information you need to make your event a success.",
+  },
+  {
+    title: "Budget Tracking",
+    feature_icon: <BsCashCoin className="app__features-icons" />,
+    descripton:
+      " Stay on top of your event budget with our budget tracking tools. Track expenses, manage invoices, and ensure that you stay within your budget, every step of the way.",
+  },
+  {
+    title: "Vendor Management",
+    feature_icon: <MdStorefront className="app__features-icons" />,
+    descripton:
+      "Manage your vendors with ease, from finding the right vendors for your event to negotiating contracts and managing payments. Our vendor management tools will make sure that everything runs smoothly, from start to finish.",
   },
 ];
-
-const variants = {
-  initial: (direction) => {
-    return { x: direction > 0 ? 200 : -200, opacity: 0 };
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    // transition: "ease-in",
-    transition: {
-      x: { type: "spring", stiffness: 300, damping: 30 },
-      opacity: { duration: 0.2 },
-    },
-  },
-  exit: (direction) => {
-    return {
-      x: direction > 0 ? -200 : 200,
-      opacity: 0,
-      transition: "ease-in",
-    };
-  },
-};
-
-const Scroll_test = () => {
-  const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-
-  function nextStep() {
-    setIndex((index + 1) % abouts.length);
-    // If click the next button direction will be set to 1
-    setDirection(1);
-  }
-  function prevStep() {
-    setIndex((index - 1 + abouts.length) % abouts.length);
-    // If click the next button direction will be set to -1
-    setDirection(-1);
-  }
+function Scroll_test({ autoplay = true }) {
   return (
     <>
-      <div className="app__test-container">
-        <div className="slideshow">
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.div
-              variants={variants}
-              animate="animate"
-              initial="initial"
-              exit="exit"
-              alt="sliders"
-              className="test-slider"
-              // Pass the variable direction by using custom
+      <div className="app__features-slider">
+        <div className="app__features-slide-track">
+          {features.slice(0, 6).map((feature, index) => (
+            <div
+              className="app__features-card app_flex app__features-slide"
               key={index}
-              custom={direction}
             >
-              {abouts[index].icon}
-              <p className="p-text" style={{ marginTop: 10 }} key={index}>
-                {abouts[index].description}
-              </p>
-            </motion.div>
-          </AnimatePresence>
-          <button className="prevButton button" onClick={prevStep}>
-            ◀
-          </button>
-          <button className="nextButton button" onClick={nextStep}>
-            ▶
-          </button>
+              <div className="app__feature-card-hover-effect">
+                <div className="app__features-icon-circle">
+                  {feature.feature_icon}
+                </div>
+                <h2>{feature.title}</h2>
+                <p>{feature.descripton}</p>
+              </div>
+            </div>
+          ))}
+          {/*  double the slide */}
+          {features.slice(0, 6).map((feature, index) => (
+            <div
+              className="app__features-card app_flex app__features-slide"
+              key={index}
+            >
+              <div className="app__feature-card-hover-effect">
+                <div className="app__features-icon-circle">
+                  {feature.feature_icon}
+                </div>
+                <h2>{feature.title}</h2>
+                <p>{feature.descripton}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </>
   );
-};
+}
 
 export default Scroll_test;
