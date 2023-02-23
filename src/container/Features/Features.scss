@@ -76,10 +76,18 @@
   justify-content: center;
 
   @media screen and (max-width: 1200px) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
     width: 75px;
     height: 75px;
   }
   @media screen and (max-width: 450px) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
     width: 85px;
     height: 85px;
   }

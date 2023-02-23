@@ -63,31 +63,19 @@ function About() {
     <>
       <div id="about" className="app__abouts-container">
         <div className="app__abouts-slideshow">
-          <AnimatePresence initial={false} custom={direction}>
+          <div className="app__abouts-slider" key={index}>
             <motion.div
-              variants={variants}
-              animate="animate"
-              initial="initial"
-              exit="exit"
-              alt="sliders"
-              className="app__abouts-slider"
-              // Pass the variable direction by using custom
-              key={index}
-              custom={direction}
+              whileInView={{ opacity: 1 }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.5, type: "tween" }}
+              className="app__abouts-item"
             >
-              <motion.div
-                whileInView={{ opacity: 1 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.5, type: "tween" }}
-                className="app__abouts-item"
-              >
-                {abouts[index].icon}
-                <p className="p-text" style={{ marginTop: 10 }} key={index}>
-                  {abouts[index].description}
-                </p>
-              </motion.div>
+              {abouts[index].icon}
+              <p style={{ marginTop: 10 }} key={index}>
+                {abouts[index].description}
+              </p>
             </motion.div>
-          </AnimatePresence>
+          </div>
           <button className="app__abouts-prevButton button" onClick={prevStep}>
             ◀
           </button>
