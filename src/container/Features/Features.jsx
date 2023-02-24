@@ -53,9 +53,10 @@ function Features() {
               key={index}
             >
               <div className="app__feature-card-hover-effect">
-                <div className="app__features-icon-circle">
+                {/* <div className="app__features-icon-circle">
                   {feature.feature_icon}
-                </div>
+                </div> */}
+
                 <h2>{feature.title}</h2>
                 <p>{feature.descripton}</p>
               </div>
@@ -68,9 +69,9 @@ function Features() {
               key={index + 0}
             >
               <div className="app__feature-card-hover-effect">
-                <div className="app__features-icon-circle">
+                {/* <div className="app__features-icon-circle">
                   {feature.feature_icon}
-                </div>
+                </div> */}
                 <h2>{feature.title}</h2>
                 <p>{feature.descripton}</p>
               </div>

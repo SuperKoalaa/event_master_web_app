@@ -55,7 +55,8 @@ $scroll-speed: 20s;
 }
 .app__features-slide {
   width: 450px;
-  display: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 10px;
   perspective: 100px;
@@ -88,43 +89,6 @@ $scroll-speed: 20s;
   transform: rotateZ(180deg);
 }
 
-.app__features-icon-circle {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 80px;
-  height: 80px;
-  border-radius: 100%;
-  background: rgb(255, 255, 255);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @media screen and (max-width: 1200px) {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 60px;
-    height: 60px;
-  }
-  @media screen and (max-width: 450px) {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 45px;
-    height: 45px;
-  }
-}
-.app__features-icons {
-  color: dodgerblue;
-  width: 55%;
-  height: 55%;
-  object-fit: cover;
-}
-
 /* This img should be modify: for example change the name of img to motion.div*/
 
 .app__feature-card-hover-effect {
@@ -136,6 +100,42 @@ $scroll-speed: 20s;
     transform: translateZ(20px);
   }
 
+  .app__features-icon-circle {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 1200px) {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 60px;
+      height: 60px;
+    }
+    @media screen and (max-width: 450px) {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 45px;
+      height: 45px;
+    }
+    .app__features-icons {
+      color: dodgerblue;
+      width: 55%;
+      height: 55%;
+      object-fit: cover;
+    }
+  }
   @media screen and(max-width:1200px) {
     width: 200px;
   }
