@@ -62,7 +62,7 @@ function Features() {
             </div>
           ))}
           {/*  double the slide */}
-          {features.slice(0, 6).map((feature, index) => (
+          {features.map((feature, index) => (
             <div
               className="app__features-card app_flex app__features-slide"
               key={index + 0}

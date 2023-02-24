@@ -1,126 +1,126 @@
-/*Testing*/
+// /*Testing*/
 
-.app__features-slider {
-  height: 600px;
-  margin: auto;
-  position: relative;
-  width: 90%;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
+// .app__features-slider {
+//   height: 600px;
+//   margin: auto;
+//   position: relative;
+//   width: 90%;
+//   display: grid;
+//   place-items: center;
+//   overflow: hidden;
 
-  background-color: #d7e3fc;
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
+//   background-color: #d7e3fc;
+//   padding-top: 5%;
+//   padding-bottom: 5%;
+// }
 
-.app__features-slide-track {
-  display: flex;
-  width: calc(450px * 12);
-  animation: scroll 10s linear infinite;
+// .app__features-slide-track {
+//   display: flex;
+//   width: calc(450px * 12);
+//   animation: scroll 10s linear infinite;
 
-  &:hover {
-    animation-play-state: paused;
-  }
-}
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-450px * 6));
-  }
-}
+//   &:hover {
+//     animation-play-state: paused;
+//   }
+// }
+// @keyframes scroll {
+//   0% {
+//     transform: translateX(0);
+//   }
+//   100% {
+//     transform: translateX(calc(-450px * 6));
+//   }
+// }
 
-.app__features-slide {
-  width: 450px;
-  display: relative;
-  align-items: center;
-  padding: 10px;
-  perspective: 100px;
-}
+// .app__features-slide {
+//   width: 450px;
+//   display: relative;
+//   align-items: center;
+//   padding: 10px;
+//   perspective: 100px;
+// }
 
-.app__features-slider::before,
-.app__features-slider::after {
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  content: "";
-  height: 100%;
-  position: absolute;
-  width: 15%;
-  z-index: 2;
-}
+// .app__features-slider::before,
+// .app__features-slider::after {
+//   background: linear-gradient(
+//     to right,
+//     rgba(255, 255, 255, 1) 0%,
+//     rgba(255, 255, 255, 0) 100%
+//   );
+//   content: "";
+//   height: 100%;
+//   position: absolute;
+//   width: 15%;
+//   z-index: 2;
+// }
 
-.app__features-slider::before {
-  left: 0;
-  top: 0;
-}
-.app__features-slider::after {
-  right: 0;
-  top: 0;
-  transform: rotateZ(180deg);
-}
+// .app__features-slider::before {
+//   left: 0;
+//   top: 0;
+// }
+// .app__features-slider::after {
+//   right: 0;
+//   top: 0;
+//   transform: rotateZ(180deg);
+// }
 
-.app__features-icon-circle {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  background: rgb(255, 255, 255);
-  align-items: center;
+// .app__features-icon-circle {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   margin: auto;
+//   width: 60px;
+//   height: 60px;
+//   border-radius: 100%;
+//   background: rgb(255, 255, 255);
+//   align-items: center;
 
-  @media screen and (max-width: 1200px) {
-    width: 75px;
-    height: 75px;
-  }
-  @media screen and (max-width: 450px) {
-    width: 85px;
-    height: 85px;
-  }
-}
-.app__features-icons {
-  color: dodgerblue;
-  width: 55%;
-  height: 55%;
-  object-fit: cover;
-}
+//   @media screen and (max-width: 1200px) {
+//     width: 75px;
+//     height: 75px;
+//   }
+//   @media screen and (max-width: 450px) {
+//     width: 85px;
+//     height: 85px;
+//   }
+// }
+// .app__features-icons {
+//   color: dodgerblue;
+//   width: 55%;
+//   height: 55%;
+//   object-fit: cover;
+// }
 
-/* This img should be modify: for example change the name of img to motion.div*/
+// /* This img should be modify: for example change the name of img to motion.div*/
 
-.app__feature-card-hover-effect {
-  border-radius: 20px;
-  width: 250px;
+// .app__feature-card-hover-effect {
+//   border-radius: 20px;
+//   width: 250px;
 
-  transition: transform 1s;
-  &:hover {
-    transform: translateZ(20px);
-  }
-}
+//   transition: transform 1s;
+//   &:hover {
+//     transform: translateZ(20px);
+//   }
+// }
 
-.app__features-card {
-  h2 {
-    padding-top: 5rem;
-    text-align: center;
-  }
-  p {
-    color: var(--gray-color);
-    text-align: center;
-    font-weight: 500;
-    padding-top: 2rem;
-  }
-  @media screen and(max-width:2000px) {
-    padding-bottom: 0rem;
-  }
-  @media screen and(max-width:1200px) {
-    padding-bottom: 1rem;
-  }
-  @media screen and(max-width:450px) {
-    padding-bottom: 2rem;
-  }
-}
+// .app__features-card {
+//   h2 {
+//     padding-top: 5rem;
+//     text-align: center;
+//   }
+//   p {
+//     color: var(--gray-color);
+//     text-align: center;
+//     font-weight: 500;
+//     padding-top: 2rem;
+//   }
+//   @media screen and(max-width:2000px) {
+//     padding-bottom: 0rem;
+//   }
+//   @media screen and(max-width:1200px) {
+//     padding-bottom: 1rem;
+//   }
+//   @media screen and(max-width:450px) {
+//     padding-bottom: 2rem;
+//   }
+// }

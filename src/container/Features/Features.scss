@@ -1,3 +1,6 @@
+$scroll-transform: calc(-450px * 6);
+$scroll-speed: 20s;
+
 .app__features-slider {
   height: 500px;
   margin: auto;
@@ -15,27 +18,50 @@
 .app__features-slide-track {
   display: flex;
   width: calc(450px * 12);
-  animation: scroll 10s linear infinite;
+  animation: scroll $scroll-speed linear infinite;
 
   &:hover {
     animation-play-state: paused;
   }
 }
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-450px * 6));
+    transform: translateX(-450px * 6);
   }
 }
-
+@media screen and (max-width: 1200px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-200px * 6);
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-140px * 6);
+    }
+  }
+}
 .app__features-slide {
   width: 450px;
   display: relative;
   align-items: center;
   padding: 10px;
   perspective: 100px;
+  @media screen and (max-width: 450px) {
+    width: 150px;
+  }
 }
 
 .app__features-slider::before,
@@ -80,16 +106,16 @@
     left: 0;
     right: 0;
     margin: auto;
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 60px;
   }
   @media screen and (max-width: 450px) {
     position: absolute;
     left: 0;
     right: 0;
     margin: auto;
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
   }
 }
 .app__features-icons {
@@ -103,11 +129,18 @@
 
 .app__feature-card-hover-effect {
   border-radius: 20px;
-  width: 450px;
+  width: 350px;
 
   transition: transform 1s;
   &:hover {
     transform: translateZ(20px);
+  }
+
+  @media screen and(max-width:1200px) {
+    width: 200px;
+  }
+  @media screen and(max-width:450px) {
+    width: 120px;
   }
 }
 
@@ -116,8 +149,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 450px;
   h2 {
-    padding-top: 5rem;
+    padding-top: 7rem;
     text-align: center;
   }
   p {
@@ -130,15 +164,29 @@
     padding-bottom: 0rem;
   }
   @media screen and(max-width:1200px) {
+    width: 300px;
     padding-bottom: 1rem;
     h2 {
-      margin-top: 1rem;
+      margin-top: 0rem;
+      padding-top: 5rem;
+      font-size: small;
     }
     p {
-      padding-top: 2rem;
+      padding-top: 1rem;
+      font-size: x-small;
     }
   }
   @media screen and(max-width:450px) {
-    padding-bottom: 2rem;
+    width: 150px;
+    padding-bottom: 0rem;
+    h2 {
+      margin-top: 0rem;
+      padding-top: 4rem;
+      font-size: small;
+    }
+    p {
+      padding-top: 1rem;
+      font-size: x-small;
+    }
   }
 }
