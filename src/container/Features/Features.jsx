@@ -45,7 +45,7 @@ const features = [
 function Features() {
   return (
     <>
-      <div className="app__features-slider">
+      <div id="features" className="app__features-slider">
         <div className="app__features-slide-track">
           {features.slice(0, 6).map((feature, index) => (
             <div

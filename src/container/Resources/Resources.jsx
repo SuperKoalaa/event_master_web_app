@@ -10,7 +10,7 @@ const resources = [
     bgColor: "white",
     icon: images.chat_gpt_logo,
     description:
-      "Using it to create user stories, which outline the different tasks and activities that your users will perform on the website. ",
+      "Using it to create user stories, which outline the different tasks and activities that the users will perform on the website. ",
   },
   {
     name: "Firebase",
@@ -24,7 +24,7 @@ const resources = [
     bgColor: "white",
     icon: images.github_logo,
     description:
-      "Using it to set up automated tests and deployments, ensuring that the code is always up to date and the website is always live and available to users",
+      "Using it to set up automated tests and deployments, ensuring that the code is always up to date and the website is always live and available to the users",
   },
   {
     name: "SASS",
